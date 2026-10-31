@@ -45,7 +45,7 @@ public class CineDAW {
                                     System.out.print(columnap);
                                 }
                             }else {
-                                if (columnap == 4) {
+                    d            if (columnap == 4) {
                                     System.out.print("-" + "    ");
                                 } else {
                                     if (filap == 'A' && columnap == 1 || filap == 'c'&& columnap==5){
