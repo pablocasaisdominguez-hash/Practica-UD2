@@ -108,7 +108,7 @@ public class CineDAW {
                             System.out.println("Introduce la fila. Entre la A y la F");
                             lfila = entrada.nextLine().trim().toUpperCase();
                             if ((lfila.length() != 1) || ((lfila.charAt(0) > 'F') || (lfila.charAt(0) < 'A'))) {
-                                System.out.println("El valor introducido es invalido, introducelo de nuevo");
+                                System.out.println("El valor introducido es no es valido, introducelo de nuevo");
                             }
                         } while ((lfila.length() != 1) || (lfila.charAt(0) > 'F') || (lfila.charAt(0) < 'A'));
                         char charfila = lfila.charAt(0);
@@ -117,13 +117,14 @@ public class CineDAW {
                             try {
                                 System.out.println("Introduce la columna(1-8)");
                                 lcolumna = entrada.nextInt();
+                                if (lcolumna < 1 || lcolumna > BUTACAS_POR_FILA) {
+                                    System.out.println("El numero debe ser entre 1 y 8");
+                                }
                             } catch (InputMismatchException e) {
                                 System.out.println("Debes introducir un número entero (1-8)");
                                 entrada.nextLine();
                             }
-                            if (lcolumna < 1 || lcolumna > BUTACAS_POR_FILA) {
-                                System.out.println("El numero debe ser entre 1 y 8");
-                            }
+
                         } while (lcolumna < 1 || lcolumna > BUTACAS_POR_FILA);
                         int posicion = (charfila - 'A') * BUTACAS_POR_FILA + (lcolumna - 1);
                         boolean ocupada = sala.charAt(posicion) == 'X';
@@ -188,8 +189,8 @@ public class CineDAW {
                     break;
                 }
                 case 3: {
-                    String textoEntradas=vendidas==1?"1 entrada": vendidas + "entradas";
-                    System.out.println("Entradas vendidas: "+ textoEntradas);
+                    String textoEntradas=vendidas==1?"1 entrada": vendidas + " entradas";
+                    System.out.println("Entradas vendidas:  "+ textoEntradas);
                     recaudacion/=100;
                     System.out.println("Recaudación: " +recaudacion + " €");
                    int ocupadas=0;
